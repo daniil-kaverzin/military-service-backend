@@ -16,5 +16,5 @@ use App\Http\Controllers\UserController;
 */
 
 Route::middleware('check.vk.sign')->group(function() {
-    Route::resource('user', UserController::class);
+    Route::resource('user', UserController::class, ['only' => ['create', 'store', 'show']]);
 });
