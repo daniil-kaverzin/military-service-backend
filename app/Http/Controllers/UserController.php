@@ -75,9 +75,9 @@ class UserController extends Controller
         return response()->json(['errors' => ['user not created']], 401);
     }
 
-    public function show($user)
+    public function show($user_id)
     {
-        $user = User::where(['vk_id' => $user])->first();
+        $user = User::where(['vk_id' => $user_id])->first();
 
         if ($user)
         {
@@ -88,7 +88,7 @@ class UserController extends Controller
 
             $vk_user = Http::get('https://api.vk.com/method/users.get', [
                 'v'            => '5.130',
-                'user_ids'     => $user,
+                'user_ids'     => $user_id,
                 'fields'       => 'photo_200',
                 'access_token' => env('VK_SERVICE'),
             ]);
