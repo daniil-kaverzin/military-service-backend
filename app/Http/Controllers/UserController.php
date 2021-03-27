@@ -76,7 +76,7 @@ class UserController extends Controller
         return response()->json(['errors' => ['user not created']], 401);
     }
 
-    public function show($user_id)
+    public function show(Request $request, $user_id)
     {
         $user = User::where(['vk_id' => $user_id])->first();
 
@@ -93,6 +93,7 @@ class UserController extends Controller
                 'user_ids'     => $user_id,
                 'fields'       => 'photo_200',
                 'access_token' => env('VK_SERVICE'),
+                'lang'         => $request->launchParams['vk_language'],
             ]);
 
             if ($vk_user->failed())
