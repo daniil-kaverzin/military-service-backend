@@ -63,8 +63,8 @@ class UserController extends Controller
                 $user->years_count = $years_count;
             }
 
-            if ($private){
-                $user->private= $private;
+            if (isset($private)){
+                $user->private = $private;
             }
 
             $user->save();
