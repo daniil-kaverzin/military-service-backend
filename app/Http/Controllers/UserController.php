@@ -83,7 +83,8 @@ class UserController extends Controller
         {
             if ($user->private)
             {
-                return response()->json(['errors' => ['user is private']], 403);
+                unset($user->date_start);
+                unset($user->years_count);
             }
 
             $vk_user = Http::get('https://api.vk.com/method/users.get', [
