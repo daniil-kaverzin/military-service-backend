@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integer('vk_id')->uniqid();
+            $table->integer('vk_id')->unique();
             $table->date('start_date')->nullable();
             $table->integer('years_count')->nullable();
             $table->boolean('private')->default(1);
