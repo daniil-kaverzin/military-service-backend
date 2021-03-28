@@ -9,6 +9,8 @@ class User extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'vk_id';
+
     protected $fillable = ['vk_id'];
 
     public $timestamps = false;
