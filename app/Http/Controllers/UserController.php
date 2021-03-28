@@ -84,7 +84,7 @@ class UserController extends Controller
         {
             if ($user->private)
             {
-                unset($user->date_start);
+                unset($user->start_date);
                 unset($user->years_count);
             }
 
